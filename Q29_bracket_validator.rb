@@ -30,14 +30,14 @@ def valid_brackets(string)
         if opening_index != nil
             match_open << opening_index 
         elsif closing_index != nil
-            #find the last open tag
+            #find the last opening tag
             open_tag_index = match_open.pop()
             #compare the open tag to the closing tag
             return false if open_tag_index != closing_index
         end
     end
-
-    return true
+    # check to make sure all openers have a closer
+    return match_open.empty?
 end
 
 string = "print a(b){ b.each |elm| {print elm} } "
