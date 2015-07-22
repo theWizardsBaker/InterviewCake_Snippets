@@ -17,13 +17,12 @@ def valid_brackets(string)
     match_open = []
     #walk over each character
     string.each_char do |chr|
-        # look for one of the opening or characters
+        # look for one of the characters opening or closing
         opening_index = openers.index(chr)
-         #if the character is a closing tag
         closing_index = closers.index(chr)
-        # if the same character is ini both opener and closers..
-        # check if it's value is the last matched opener
-        # if so, assume it's the closing tag
+        # if the same character is in both opener and closers..
+        # check if the value is the last matched opener
+        # if so, just assume it's trying to be the closing tag
         if opening_index == closing_index
             opening_index = nil if match_open.last == opening_index
         end
